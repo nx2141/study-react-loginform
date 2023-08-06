@@ -4,17 +4,24 @@ import React, { useState } from "react";
 
 function App() {
   const initialValues = {
+    // この部分は、初期のフォームの値を持つオブジェクトを設定しています。
+    // すなわち、ユーザー名、メールアドレス、パスワードの各フィールドの初期値は空文字列("")です。
     username: "",
     mailAddress: "",
     password: "",
   };
+  // ここで、ReactのuseStateフックを使用して、フォームの値を管理する状態変数formValuesと、
+  // その状態を更新する関数setformValuesを作成しています。
+  // 初期値としてinitialValuesがセットされています。
   const [formValues, setformValues] = useState(initialValues);
   const [formErrors, setformErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
 
   const handleChange = (e) => {
-    // console.log(e.target.value);
+    //分割代入
     const { name, value } = e.target;
+    // この input 要素(e)は、name や value といった属性を持っています。したがって、
+    // e.target.name はその input 要素の name 属性の値を指し、e.target.value は input 要素の現在の値を指します。
     setformValues({ ...formValues, [name]: value });
     console.log(formValues);
   };
