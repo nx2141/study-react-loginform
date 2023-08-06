@@ -9,6 +9,10 @@ function App() {
     password: "",
   };
   const [formValues, setformValues] = useState(initialValues);
+
+  const handleChange = (e) => {
+    console.log(e.target.value);
+  };
   return (
     <div className="formContainer">
       <form>
@@ -16,7 +20,12 @@ function App() {
         <hr />
         <div className="formField">
           <label>ユーザー名</label>
-          <input type="text" placeholder="ユーザー名" name="username" />
+          <input
+            type="text"
+            placeholder="ユーザー名"
+            name="username"
+            onChange={handleChange}
+          />
         </div>
         <div className="formField">
           <label>メールアドレス</label>
